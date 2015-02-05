@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 
 {% block title %}CloudOPC.com{% endblock %}
 
@@ -8,4 +9,8 @@
 	<p>The current date and time is: {{ moment().format('MMMM Do YYYY, h:mm:ss a') }}.</p>
 	<p>That was {{ moment(current_time).fromNow(refresh=True) }}</p>
 </div>
+<div class="page-header">
+	<h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>
+</div>
+{{ wtf.quick_form(form)}}
 {% endblock %}
